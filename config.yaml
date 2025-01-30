@@ -1,8 +1,8 @@
 # config.yaml
 server:
-  url: "https://ientrada.raccoon-ai.io/api/verify_face"
-  username: "slt_interns"
-  api_key: "26PytkCBcZ"
+  url: "################"
+  username: "########s"
+  api_key: "###########"
   entrance_other_in: "i" #credential to entrance
   exit_other_in: "o" #credential to exit
 
