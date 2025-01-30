@@ -1,0 +1,51 @@
+# config.yaml
+server:
+  url: "https://ientrada.raccoon-ai.io/api/verify_face"
+  username: "slt_interns"
+  api_key: "26PytkCBcZ"
+  entrance_other_in: "i" #credential to entrance
+  exit_other_in: "o" #credential to exit
+
+camera:
+  entrance_url: "rtsp://admin:L2F80F4C@192.168.1.111/cam/realmonitor?channel=1&subtype=00&authbasic=YWRtaW46TDIyRDA0RTc=" # Replace with the correct entrance camera URL
+  exit_url: "rtsp://admin:L2A2B9DD@192.168.1.105/cam/realmonitor?channel=1&subtype=00&authbasic=YWRtaW46TDIyRDA0RTc="
+
+  # entrance_url: "http://192.168.1.4:8080/video"
+  # exit_url: "http://192.168.1.188:8080/video"
+
+  #entrance_url: "rtsp://192.168.1.191:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif"
+  #exit_url: "rtsp://192.168.1.177:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif"
+
+paths:
+  #video_file_path: "sample_video/sample_video.mp4"
+  test_img_path: "test_cases/sample_images/registered.jpg"
+
+entrance_led_pins:
+  green: 27 #Face successfully verified
+  red: 22 #No face recognized
+  blue: 18 #Face spoof detected
+  white: 17 #Face recognized, not registered
+
+exit_led_pins:
+  green: 5 #Face successfully verified
+  red: 6 #No face recognized
+  blue: 21 #Face spoof detected
+  white: 16 #Face recognized, not registered
+#No internet :Blue and Yellow LEDs blink together
+#Camera connection failed :Blue and Green LEDs blink together
+
+retry_interval: 5 # Seconds to wait before retrying internet connection
+
+motion_detection:
+  motion_threshold: 500000000
+  frame_skip: 10
+
+yolo:
+  model: "yolov5s" # YOLO model version
+  confidence_threshold: 0.5 # Confidence threshold for YOLO detection
+
+haar_cascade:
+  path_face: "haarcascade_frontalface_default.xml"
+  path_eye: "haarcascade_eye.xml"
+  scaleFactor: 1.1
+  minNeighbors: 1
